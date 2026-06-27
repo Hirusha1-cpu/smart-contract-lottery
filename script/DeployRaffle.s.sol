@@ -9,7 +9,7 @@ import {CreateSubscription} from "./Interactions.s.sol";
 contract DeployRaffle is Script {
     function run()  external returns(Raffle, HelperConfig) {
         HelperConfig helperConfig = new HelperConfig();
-        (uint256 entranceFee, uint256 interval, address vrfCoordinator,  bytes32 gasLane, uint64 subscriptionId, uint32 callbackGasLimit) 
+        (uint256 entranceFee, uint256 interval, address vrfCoordinator,  bytes32 gasLane, uint64 subscriptionId, uint32 callbackGasLimit, address link) 
         = helperConfig.activeNetworkConfig();
 
         if (subscriptionId == 0) {
