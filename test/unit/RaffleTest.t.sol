@@ -59,7 +59,7 @@ contract RaffleTest is Test{
 
     }
 
-    function testCanEnterWhenRaffleIsCalculating() public {
+    function testCantEnterWhenRaffleIsCalculating() public {
         vm.prank(PLAYER);
         raffle.enterRaffle{value: entranceFee}();
         vm.warp(block.timestamp + interval + 1);
