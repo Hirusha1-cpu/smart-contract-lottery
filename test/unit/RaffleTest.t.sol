@@ -126,6 +126,6 @@ contract RaffleTest is Test{
         _;
     }
     function testPerfromUpkeepUpdatesRaffleStateAndEmitsRequestId() public raffleEnteredAndTimePassed{
-        
+        vm.recordLogs();
     }
 }
