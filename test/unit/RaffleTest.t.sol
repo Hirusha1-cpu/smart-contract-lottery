@@ -118,6 +118,14 @@ contract RaffleTest is Test{
         );
         raffle.performUpkeep("");
   }
-
-    function 
+    modifier raffleEnteredAndTimePassed {
+        vm.prank(PLAYER);
+        raffle.enterRaffle{value: entranceFee}();
+        vm.warp(block.timestamp + interval + 1);
+        vm.roll(block.number + 1);
+        _;
+    }
+    function testPerfromUpkeepUpdatesRaffleStateAndEmitsRequestId() public raffleEnteredAndTimePassed{
+        
+    }
 }
