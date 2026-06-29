@@ -6,6 +6,7 @@ import {DeployRaffle} from "../../script/DeployRaffle.s.sol";
 import {Raffle} from "../../src/Raffle.sol";
 import {Test, console} from "forge-std/Test.sol";
 import {HelperConfig} from "../../script/HelperConfig.s.sol";
+import {Vm} from "forge-std/Vm.sol";
 
 contract RaffleTest is Test{
     event EnteredRaffle(address indexed player);
@@ -127,5 +128,7 @@ contract RaffleTest is Test{
     }
     function testPerfromUpkeepUpdatesRaffleStateAndEmitsRequestId() public raffleEnteredAndTimePassed{
         vm.recordLogs();
+        raffle.performUpkeep("");
+        Vm.Log[] memory entries = vm.getRecordedLogs();
     }
 }
