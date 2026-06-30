@@ -95,11 +95,11 @@ contract Raffle is VRFConsumerBaseV2{
          s_raffleState = RaffleState.OPEN;
          s_players = new address payable[](0);
          s_lastTimeStamp = block.timestamp;
+        emit PickedWinner(winner);
         (bool success,) = winner.call{value: address(this).balance}("");
         if (!success) {
             revert Raffle_TransferFailed();
         }
-        emit PickedWinner(winner);
     }
     function getEntranceFee() external view returns(uint256){
         return i_entranceFee;
@@ -113,4 +113,18 @@ contract Raffle is VRFConsumerBaseV2{
         return s_players[indexOfPlayer];
 
     }
+
+    function getRecentWinner() external view returns(address) {
+        return s_recentWinner;
+    }
+
+    function getLengthOfPlayers()  external view returns(uint256){
+        return s_players.length;
+    }
+
+    function getLastTimeStamp()  external view returns(uint256){
+        return s_players.length;
+    }
+
+
 }
