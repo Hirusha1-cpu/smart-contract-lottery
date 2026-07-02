@@ -18,3 +18,14 @@ docs/
 .env
 .env.*
 !.env.example
+
+# Frontend (Next.js)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/dist/
+frontend/.vercel/
+frontend/.env.local
+frontend/.env.*.local
+frontend/coverage/
