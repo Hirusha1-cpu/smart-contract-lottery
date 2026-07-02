@@ -70,7 +70,7 @@ contract Raffle is VRFConsumerBaseV2{
     //  Be automatically called
     
   function performUpkeep( bytes calldata /* performData */ ) external {
-        //  check to see if enough time has passed
+        //  check to see if enough time has passed.
        (bool upkeepNeeded,) = checkUpkeep("");
        if (!upkeepNeeded) {
          revert Raffle_UpKeepNotNeeded(address(this).balance, s_players.length, uint256(s_raffleState));
